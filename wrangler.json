@@ -1,0 +1,14 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "react-router-starter-template",
+	"main": "./workers/app.ts",
+	"compatibility_date": "2025-10-08",
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true,
+	"vars": {
+		"VALUE_FROM_CLOUDFLARE": "export default {   async fetch(request) {     const url = new URL(request.url);          // Cool features to show off     const features = [       \"🚀 Serverless at the edge\",       \"🌍 Runs in 300+ cities worldwide\",       \"⚡ Response time: <50ms\",       \"🔒 Free tier available\",       \"🤖 Easy to deploy\"     ];          // Random greeting based on time     const hour = new Date().getHours();     let greeting = \"Good \";     greeting += hour < 12 ? \"morning\" : hour < 18 ? \"afternoon\" : \"evening\";          return new Response(`       <html>         <body style=\"font-family: system-ui; max-width: 600px; margin: 50px auto; padding: 20px; text-align: center;\">           <h1 style=\"color: #f6821f;\">${greeting}!</h1>           <p style=\"font-size: 24px; margin: 30px 0;\">You just deployed your first Cloudflare Worker!</p>                      <div style=\"background: #f7f9fa; padding: 20px; border-radius: 10px; text-align: left; margin: 30px 0;\">             <h3 style=\"margin-top: 0;\">✨ Features:</h3>             <ul>               ${features.map(f => `<li>${f}</li>`).join('')}             </ul>           </div>                      <p style=\"color: #666;\">Your worker URL: <strong>${url.origin}</strong></p>         </body>       </html>     `, {       headers: { \"content-type\": \"text/html\" }     });   } };"
+	}
+}
